@@ -52,7 +52,39 @@ body{
 .hero h1{margin:0 0 6px 0;font-size:1.6rem;color:var(--text)}
 .hero p{margin:0;color:var(--muted)}
 
-.links{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
+/* make the bio paragraph justified for improved readability */
+#bio {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  line-height: 1.6;
+}
+
+.links{
+  margin-top:10px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-start; /* default: left-aligned on wide screens */
+  align-items:center;
+}
+
+/* center links on narrow viewports */
+@media (max-width:720px){
+  .hero{flex-direction:column;align-items:center;text-align:center}
+  .avatar{width:100px;height:100px}
+  body{padding:18px}
+  .links{
+    justify-content:center; /* center when space is limited */
+  }
+
+  /* override justified bio on small screens to center it */
+  #bio {
+    text-align: center;
+    text-justify: auto;
+  }
+}
+
 .links a,
 .btn {
   color: var(--text);
@@ -118,4 +150,13 @@ body{
   .hero{flex-direction:column;align-items:center;text-align:center}
   .avatar{width:100px;height:100px}
   body{padding:18px}
+  .links{
+    justify-content:center; /* center when space is limited */
+  }
+
+  /* override justified bio on small screens to center it */
+  #bio {
+    text-align: center;
+    text-justify: auto;
+  }
 }
