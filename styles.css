@@ -1,11 +1,12 @@
 /* Dark / black professional theme + responsive project grid (auto-fit -> collapses to 1 column) */
 :root{
-  --bg: #050505;          /* near-black background */
-  --card: #0b0b0d;        /* panel/card background */
-  --muted: #9aa6b0;       /* subdued text */
-  --text: #e6eef8;        /* main readable text */
-  --accent: #38bdf8;      /* accent color */
-  --glass: rgba(255,255,255,0.03);
+  /* slightly lighter, higher-contrast box palette */
+  --bg: #050505;            /* page background (keep black) */
+  --card: #0f1b24;          /* lighter card / panel background */
+  --muted: #a9bcc6;         /* lighter muted text for readability */
+  --text: #f6fbff;          /* main readable text */
+  --accent: #56c6ff;        /* brighter accent */
+  --glass: rgba(255,255,255,0.04);
   --radius: 12px;
   --max: 1100px;
   --gap: 20px;
@@ -37,10 +38,12 @@ body{
   display:flex;
   gap:18px;
   align-items:center;
-  background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  /* changed: use same lighter card palette as other boxes for consistency */
+  background: linear-gradient(180deg, var(--card), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
   padding:18px;
   border-radius:var(--radius);
-  box-shadow: 0 6px 30px rgba(0,0,0,0.7);
+  box-shadow: 0 6px 30px rgba(0,0,0,0.6);
 }
 .avatar{
   width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.04);
@@ -53,8 +56,8 @@ body{
 .links a,
 .btn {
   color: var(--text);
-  background: transparent;
-  border: 1px solid rgba(56,189,248,0.12);
+  background: linear-gradient(180deg, rgba(86,198,255,0.12), rgba(86,198,255,0.06));
+  border: 1px solid rgba(86,198,255,0.12);
   padding:8px 10px;border-radius:8px;text-decoration:none;font-weight:600;
   transition: background .12s ease, transform .12s ease;
 }
@@ -69,7 +72,8 @@ body{
 
 /* section/card visuals */
 .section{
-  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+  background: linear-gradient(180deg, var(--card), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
   padding:18px;border-radius:12px;
 }
 
@@ -81,17 +85,17 @@ body{
     margin-top: 16px;
 }
 
-/* project card: dark, subtle border and lift on hover */
+/* project card: slightly lighter, clearer border and shadow */
 .project-card {
     display: block;
-    background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.03));
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
     color: var(--text);
-    border: 1px solid rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
     border-radius: 10px;
     padding: 16px;
     text-decoration: none;
     transition: transform .14s ease, box-shadow .14s ease;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.6);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.65);
 }
 .project-card:hover {
     transform: translateY(-6px);
@@ -102,7 +106,7 @@ body{
 
 /* README area and footer */
 .readme{
-  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));
   color: var(--text);
   padding:12px;border-radius:8px;
 }
